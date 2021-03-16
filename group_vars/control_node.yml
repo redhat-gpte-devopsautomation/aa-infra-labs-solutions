@@ -1,15 +1,13 @@
-
-openstack_security_groups: []    
+openstack_security_groups: []
 
 openstack_servers:
 
   - instance_name: app1
     group: app_servers
     deployment: dev
-    security_group_name: 7b9d-HostSG
+    security_group_name: "{{GUID}}-HostSG"
     image: "{{ _server_image | default('rhel-8.3') }}"
     openstack_cloud: "{{GUID}}-project"
     flavor: GLOBAL-CPU_4_Memory_32768_Disk_60_flavor
     key_name: "{{GUID}}-keypair"
-
-...
+    network: "{{GUID}}-dev-network"

@@ -4,9 +4,10 @@
   gather_facts: false
   become: false
   collections:
-    - tok.openstack
+    - gpte.openstack
 
   roles:
 
-    - openstack_manage_servers_example
+    - openstack_manage_servers
+
 ...

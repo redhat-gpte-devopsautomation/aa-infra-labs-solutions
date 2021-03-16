@@ -39,8 +39,8 @@
   loop_control:
     loop_var: __instance
 
-- when: openstack_server_state != 'absent' | default(true)
-  block:
+#- when: openstack_server_state != 'absent' | default(true)
+#  block:
 
 #    - name: Wait for servers by name to be available
 #      wait_for:

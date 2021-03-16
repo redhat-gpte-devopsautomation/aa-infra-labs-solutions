@@ -1,3 +1,4 @@
+---
 - name: Manage OpenStack Servers
   hosts: control_node
   gather_facts: false
@@ -7,5 +8,5 @@
 
   roles:
 
-    - openstack_manage_servers
+    - openstack_manage_servers_example
 ...

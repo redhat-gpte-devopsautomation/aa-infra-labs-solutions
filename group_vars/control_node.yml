@@ -1,0 +1,12 @@
+
+openstack_security_groups: []    
+
+openstack_servers:
+
+  - instance_name: app1
+    group: app_servers
+    deployment: dev
+    security_group_name: 7b9d-HostSG
+    image: "{{ _server_image | default('rhel-8.3') }}"
+
+...

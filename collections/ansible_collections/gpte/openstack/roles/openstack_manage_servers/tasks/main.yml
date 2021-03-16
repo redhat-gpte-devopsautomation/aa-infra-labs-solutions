@@ -31,13 +31,15 @@
   retries: 900
   loop: "{{ r_instances.results }}"
 
-- name: Debug instances
-  debug:
-    msg: "Server is {{ __instance.__openstack_server.instance_name }}"
-    verbosity: 2
-  loop: "{{ r_instances.results }}"
-  loop_control:
-    loop_var: __instance
+#- name: Debug instances
+#  debug:
+#    msg: "Server is {{ __instance.__openstack_server.instance_name }}"
+#    verbosity: 2
+#  loop: "{{ r_instances.results }}"
+#  loop_control:
+#    loop_var: __instance
+
+- debug: var=r_instances
 
 #- when: openstack_server_state != 'absent' | default(true)
 #  block:

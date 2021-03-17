@@ -9,14 +9,10 @@
     wait:             "{{ __openstack_server.wait                   | default('yes') }}"
     security_groups:  "{{ __openstack_server.security_group_name }}"
     delete_fip:       "{{__openstack_server.delete_fip              | default(false) }}"
+    public_ip:         "{{__openstack_server.public_ip              | default(false) }}"
     meta: "group={{ __openstack_server.group }},deployment_name={{ __openstack_server.deployment }}"
     nics:
       - net-name: "{{ __openstack_server.network }}"
-      #    - net-name: ext_network
-    userdata: |
-      #!/bin/bash
-      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
-      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
   loop: "{{ openstack_servers }}"
   loop_control:
     loop_var: __openstack_server

@@ -47,19 +47,18 @@
        loop_control:
          loop_var: __openstack_server
        register: s_instances
-     - debug: var=item
-       loop: "{{ lookup('dict',s_instances.results) }}"
+     - debug: var=item.1.private_v4
+       loop: "{{ s_instances.results|subelements('openstack_servers') }}"
 
-#    - name: Wait for servers by name to be available
-#      wait_for:
-#        host: "{{ __fip.floating_ip.floating_ip_address }}"
-#        port: 22
-#        search_regex: OpenSSH
-#        timeout: 600
-#      loop: "{{ r_floating_ips.results }}"
-#      loop_control:
-#        loop_var: __fip
-#      delegate_to: "{{ inventory_hostname }}"
-
+     - name: Wait for servers by name to be available
+       wait_for:
+         host: "{{ __ip.1.private_v4 }}"
+         port: 22
+         search_regex: OpenSSH
+         timeout: 600
+       loop: "{{ s_instances.results|subelements('openstack_servers') }}"
+       loop_control:
+         loop_var: __ip
+       delegate_to: "{{ inventory_hostname }}"
 ...
 

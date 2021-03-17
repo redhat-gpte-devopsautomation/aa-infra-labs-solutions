@@ -46,7 +46,7 @@
      - name: Get Openstack server info
        os_server_info:
          cloud:     "{{ __openstack_server.openstack_cloud   | default('openstack') }}"
-         name:      "{{ __openstack_server.instance_name }}"
+         server:      "{{ __openstack_server.instance_name }}"
        loop: "{{ openstack_servers }}"
        loop_control:
          loop_var: __openstack_server

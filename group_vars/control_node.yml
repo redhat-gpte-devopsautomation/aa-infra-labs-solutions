@@ -3,8 +3,8 @@ openstack_server_state: present
 
 openstack_servers:
 
-  - instance_name: app1
-    group: app_servers
+  - instance_name: server1
+    group: servers
     deployment: dev
     security_group_name: "{{GUID}}-HostSG"
     image: "{{ _server_image | default('rhel-8.3') }}"

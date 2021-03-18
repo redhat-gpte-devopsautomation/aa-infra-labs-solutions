@@ -30,6 +30,13 @@
         loop: "{{ r_instances.openstack_servers }}"
         loop_control:
           loop_var: __instance
+      
+      - name: Set AnsibleGroup value
+        set_fact:
+          AnsibleGroup: "{{ __instance.metadata.AnsibleGroup }}" 
+        loop: "{{ r_instances.openstack_servers }}"
+        loop_control:
+          loop_var: __instance
 
       - name: Generate lab static inventory file
         template:

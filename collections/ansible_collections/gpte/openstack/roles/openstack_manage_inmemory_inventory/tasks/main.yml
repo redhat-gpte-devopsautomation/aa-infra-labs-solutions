@@ -26,7 +26,7 @@
         debug:
           msg:
             - "name: {{ __instance.private_v4 }}"
-            - "group: {{ __instance.metadata.group }}"
+            - "group: {{ __instance.metadata.AnsibleGroup }}"
         loop: "{{ r_instances.openstack_servers }}"
         loop_control:
           loop_var: __instance

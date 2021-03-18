@@ -14,7 +14,6 @@
         name: "{{ __instance.private_v4 }}"
         group: 
           - "{{ __instance.metadata.AnsibleGroup }}"
-          - "{{ __instance.metadata.deployment_name }}"
       loop: "{{ r_instances.openstack_servers }}"
       loop_control:
         loop_var: __instance

@@ -1,7 +1,7 @@
-{%  for item in AnsibleGroup | sort if item != "jumpbox" %}
+{%  for item in AnsibleGroup | sort if item != "bastions,control" %}
 
 [{{item}}]
-{%   for entry in AnsibleGroup[item] | sort if entry != "workstation" %}
+{%   for entry in groups[item] | sort if entry != "control" %}
 {{ entry }}  
 {%   endfor %}
 {% endfor %}

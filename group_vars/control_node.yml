@@ -5,7 +5,7 @@ openstack_cloud: "{{GUID}}-project"
 openstack_servers:
 
   - instance_name: server1
-    group: servers
+    AnsibleGroup: servers
     deployment: dev
     security_group_name: "{{GUID}}-HostSG"
     image: "{{ _server_image | default('rhel-8.3') }}"

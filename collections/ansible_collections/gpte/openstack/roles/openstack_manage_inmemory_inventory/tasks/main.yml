@@ -11,7 +11,7 @@
 
     - name: Add host(s) to inventory
       add_host:
-        name: "{{ __instance.public_v4 }}"
+        name: "{{ __instance.private_v4 }}"
         group: 
           - "{{ __instance.metadata.group }}"
           - "{{ __instance.metadata.deployment_name }}"
@@ -44,4 +44,4 @@
 
   tags:
     - openstack-inventory
-    - must    
+    - must

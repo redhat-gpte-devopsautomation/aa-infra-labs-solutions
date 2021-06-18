@@ -12,3 +12,6 @@
 
 
 - name: Check Connection
+  hosts: servers
+  tasks:
+    - ping: 

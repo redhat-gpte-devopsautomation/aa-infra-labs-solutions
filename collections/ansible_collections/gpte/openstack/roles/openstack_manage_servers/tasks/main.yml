@@ -1,4 +1,4 @@
-- name: Create server instances
+- name: Create or Delete server instances
   os_server:
     cloud:            "{{ __openstack_server.openstack_cloud                           | default('openstack') }}"
     name:             "{{ __openstack_server.instance_name }}"
